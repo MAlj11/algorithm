@@ -37,7 +37,7 @@ public class deletenode {
 		//要删除的节点为中间节点
 		else{
 			node.data = node.next.data;    //复制信息
-			node.next = node.next.next;    //下一索引指向下一一索引
+			node.next = node.next.next;    //下一索引指向下下索引
 		
 		}
 	}
