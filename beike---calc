@@ -1,0 +1,45 @@
+package calc;
+
+import java.util.Scanner;
+
+/**
+ * 假设有这样一个计算器，该计算器只有两个按钮，按下第一个按钮能使显示数值减少1，
+ * 按下第二个按钮能使显示数值乘以2，当前显示数值为N，
+ * 那么至少要按多少次按钮才能使显示数值变成M？
+ * @author MA
+ *
+ */
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String str = sc.nextLine();
+    String[] line = str.split(" ");
+    int[] arr = new int[2];
+    for(int i=0;i<2;i++){
+    	arr[i] = Integer.parseInt(line[i]);
+    }
+    System.out.print(docount(arr[0],arr[1]));
+    
+}
+  public static int docount(int a,int b){
+	  int from = a;
+	  int to = b;
+	  int count = 0;
+	 
+	  while(from != to){
+		int to1 = from * 2;
+		int to2 = from - 1;
+		int cha1 = Math.abs(to1 - b);
+		int cha2 = Math.abs(to2 - b);
+		if(cha1 >= cha2){
+			from = to2;
+			count++;
+		}else{
+			from = to1;
+			count++;
+		}
+	  }
+	  return count;
+  }
+}
