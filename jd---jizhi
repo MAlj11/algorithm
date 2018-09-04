@@ -1,0 +1,35 @@
+package jinzhi;
+import java.util.Scanner;
+
+public class Main {
+	
+   public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	while(sc.hasNextInt()){
+		int a = sc.nextInt();
+		int fenmu = a - 2;
+        int fenzi = jinzhi(a);
+        int gongyinshu = 1;
+        int small = fenzi < fenmu ? fenzi : fenmu;
+        for(int i=1;i<=small;i++){
+        	if(fenzi % i == 0 && fenmu % i == 0){
+        		gongyinshu = i;
+        	}
+        }
+        System.out.println(fenzi/gongyinshu + "/" + fenmu/gongyinshu);
+	}
+	}
+   
+   public static int jinzhi(int a){
+	   int sum = 0;
+	   for(int i=2;i<=a-1;i++){
+		   int b = a;
+		 while(b != 0){
+			 int yushu = b % i;
+			 b = b / i;
+			 sum = sum + yushu;
+		 }
+	 }
+	   return sum;
+   }
+}
