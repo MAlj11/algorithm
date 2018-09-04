@@ -1,0 +1,52 @@
+package luckynum;
+
+import java.util.Scanner;
+
+/**
+ * 
+ * f(x)---十进制各位之和
+ * g(x)---二进制各位之和
+ * 
+ * 输入：n
+ * 输出： (0,n] f(x)与g(x)有几个相等的
+ *
+ */
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt();
+		int count = 0;
+		for(int i=1;i<=x;i++){
+			if(f(i) == g(i)){
+				count++;
+			}
+		}
+		System.out.println(count);
+	}
+	
+	//十进制
+	public static int f(int num){
+		int x = num;
+		int sum = 0;
+		while(x !=0){
+			int a = x % 10;
+			x = x / 10;
+			sum = sum + a;
+		}
+		return sum;
+	}
+	
+	
+	//二进制
+	public static int g(int num){
+		int y = num;
+		int sum = 0;
+		while(y != 0){
+			int b = y % 2;
+			y = y / 2;
+			sum = sum + b;
+		}
+		return sum;
+	}
+
+}
