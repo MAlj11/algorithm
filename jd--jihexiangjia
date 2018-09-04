@@ -1,0 +1,59 @@
+package addjihe;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+/*
+ * 输入：n,m
+ *        A
+ *        B
+ * 输出：针对每组数据输出一行数据，表示合并后的集合，要求从小到大输出，每个元素之间有一个空格隔开,行末无空格。
+ * 
+ * 3 3
+   1 3 5
+   2 4 6
+ */
+public class Main {
+   public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	String num = sc.nextLine();
+	String[] numline = num.split(" ");
+	int n = Integer.parseInt(numline[0]);
+	int m = Integer.parseInt(numline[1]);
+    
+	//Scanner sc2 = new Scanner(System.in);
+	String strjihe1 = sc.nextLine();
+	
+	//Scanner sc3 = new Scanner(System.in);
+	String strjihe2 = sc.nextLine();
+	
+	TreeSet<Integer> set = new TreeSet<>();
+	
+	String[] strjihe1a = strjihe1.split(" ");
+	for(int i=0;i<n;i++){
+     set.add(Integer.parseInt(strjihe1a[i]));     
+	}
+	
+	String[] strjihe2a = strjihe2.split(" ");
+	for(int i=0;i<m;i++){
+		set.add(Integer.parseInt(strjihe2a[i]));
+	}
+    
+	List<Integer> list = new ArrayList<>();
+	for(int i : set){
+		list.add(i);
+	}
+	int count = 0;
+    for(int i : list){
+    	if(count == list.size()){
+    		System.out.print(i);
+    	}else{
+    		count++;
+    		System.out.print(i + " ");
+    	}
+    }
+	sc.close();
+   }
+}
