@@ -1,0 +1,36 @@
+package Balls;
+/*
+ *  小东和三个朋友一起在楼上抛小球，他们站在楼房的不同层，
+ *  假设小东站的楼层距离地面N米，球从他手里自由落下，
+ *  每次落地后反跳回上次下落高度的一半，并以此类推直到
+ *  全部落到地面不跳，求4个小球一共经过了多少米？(数字都为整数)
+ *  给定四个整数A,B,C,D，请返回所求结果。 
+ */
+public class Balls {
+	 public static int calcDistance(int A, int B, int C, int D) {
+	        int sum1 = calc(A);
+	        int sum2 = calc(B);
+	        int sum3 = calc(C);
+	        int sum4 = calc(D);
+		 return sum1+sum2+sum3+sum4;
+	    }
+	 
+	 public static int calc(int num){
+		 //System.out.print(num+": ");
+	     float hight = num;
+	     float sum = 0;
+		 while(hight != 0){
+			 //System.out.print(hight+" ");
+			 sum = sum + hight;
+			 hight = hight / 2;
+			 Math.ceil(hight);
+			 //System.out.print(hight+" ");
+			 sum = sum + hight;
+		 }
+		// System.out.println();
+		 return (int)Math.ceil(sum);
+	 }
+       public static void main(String[] args) {
+    	   System.out.println(calcDistance(100,90,80,70));
+	}
+}
